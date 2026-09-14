@@ -39,6 +39,7 @@ class _LoginPageState extends State<LoginPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               TextFormField(
+                initialValue: 'julio',
                 decoration: InputDecoration(
                   labelText: 'Usuário',
                   border: OutlineInputBorder(),
@@ -56,6 +57,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
               SizedBox(height: 20.0),
               TextFormField(
+                initialValue: '123456',
                 obscureText: true,
                 decoration: InputDecoration(
                   labelText: 'Senha',

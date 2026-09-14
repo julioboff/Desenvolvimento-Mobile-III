@@ -2,6 +2,8 @@ import 'package:app_aula/telas/contador.dart';
 import 'package:app_aula/telas/home.dart';
 import 'package:app_aula/telas/login.dart';
 import 'package:app_aula/telas/sobre.dart';
+import 'package:app_aula/telas/usuario_crud.dart';
+import 'package:app_aula/telas/usuario_crud_sqlite.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -26,6 +28,8 @@ class MyApp extends StatelessWidget {
         '/home': (context) => HomePage(),
         '/contador': (context) => ContadorPage(title: "Contador"),
         '/sobre': (context) => SobrePage(),
+        '/usuario_crud': (context) => UsuarioCrudPage(),
+        '/usuario_crud_sqlite': (context) => UsuarioCrudSQLitePage(),
       },
     );
   }

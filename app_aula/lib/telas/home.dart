@@ -50,6 +50,22 @@ class _HomePageState extends State<HomePage> {
                 Navigator.of(context).pushNamed('/sobre');
               },
             ),
+            ListTile(
+              leading: const Icon(Icons.arrow_forward),
+              title: const Text('Usuários Crud'),
+              onTap: () {
+                Navigator.pop(context); // close the drawer
+                Navigator.of(context).pushNamed('/usuario_crud');
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.arrow_forward),
+              title: const Text('Usuários Crud SQLite'),
+              onTap: () {
+                Navigator.pop(context); // close the drawer
+                Navigator.of(context).pushNamed('/usuario_crud_sqlite');
+              },
+            ),
             const Divider(),
             ListTile(
               leading: const Icon(Icons.exit_to_app, color: Colors.red),

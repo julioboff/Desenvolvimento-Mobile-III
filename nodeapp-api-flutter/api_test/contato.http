@@ -1,0 +1,45 @@
+# Obter a lista 
+GET http://localhost:3000/contato
+Content-Type: application/json
+###
+
+# Inserir novo 
+POST http://localhost:3000/contato
+Content-Type: application/json
+
+{
+    "id": null,
+    "nome": "Beltrano",
+    "email": "beltrano@upf.br",
+    "telefone": "54 65658-0436"
+}
+###
+
+# Alterar um 
+PUT http://localhost:3000/contato
+Content-Type: application/json
+ 
+{
+    "id": 2,
+    "nome": "Fulano alterado",
+    "email": "fulano@upf.br",
+    "telefone": "54 65487-6666"
+}
+###
+
+# Excluir  pelo id
+DELETE  http://localhost:3000/contato/2
+Content-Type: application/json
+###
+
+
+# Obter pelo id 
+GET http://localhost:3000/contato/1
+Content-Type: application/json
+###
+
+
+
+
+
+
