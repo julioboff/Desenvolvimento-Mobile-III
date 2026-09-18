@@ -2,6 +2,7 @@ import 'package:app_aula/telas/contador.dart';
 import 'package:app_aula/telas/home.dart';
 import 'package:app_aula/telas/login.dart';
 import 'package:app_aula/telas/sobre.dart';
+import 'package:app_aula/telas/tela_lista_animais.dart';
 import 'package:app_aula/telas/usuario_crud.dart';
 import 'package:app_aula/telas/usuario_crud_sqlite.dart';
 import 'package:flutter/material.dart';
@@ -30,6 +31,7 @@ class MyApp extends StatelessWidget {
         '/sobre': (context) => SobrePage(),
         '/usuario_crud': (context) => UsuarioCrudPage(),
         '/usuario_crud_sqlite': (context) => UsuarioCrudSQLitePage(),
+        '/animais': (context) => const TelaListaAnimais(),
       },
     );
   }

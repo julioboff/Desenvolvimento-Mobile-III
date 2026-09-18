@@ -75,6 +75,15 @@ class _HomePageState extends State<HomePage> {
                 Navigator.pop(context);
               },
             ),
+            ListTile(
+              leading: const Icon(Icons.pets),
+              title: const Text('Adoção de Animais'),
+              onTap: () {
+                Navigator.pop(context); // close the drawer
+                Navigator.of(context).pushNamed('/animais');
+              },
+            ),
+            const Divider(),
           ],
         ),
       ),
