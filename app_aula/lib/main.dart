@@ -1,11 +1,7 @@
-import 'package:app_aula/telas/contador.dart';
+import 'package:flutter/material.dart';
 import 'package:app_aula/telas/home.dart';
 import 'package:app_aula/telas/login.dart';
-import 'package:app_aula/telas/sobre.dart';
-import 'package:app_aula/telas/tela_lista_animais.dart';
-import 'package:app_aula/telas/usuario_crud.dart';
-import 'package:app_aula/telas/usuario_crud_sqlite.dart';
-import 'package:flutter/material.dart';
+import 'package:app_aula/telas/tela_lista_pets.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,24 +10,17 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'App aula',
+      title: 'Adoção de Pets',
       theme: ThemeData(
-        colorScheme: .fromSeed(
-          seedColor: const Color.fromARGB(255, 61, 168, 255),
-        ),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
       ),
       home: const LoginPage(),
       routes: {
-        '/home': (context) => HomePage(),
-        '/contador': (context) => ContadorPage(title: "Contador"),
-        '/sobre': (context) => SobrePage(),
-        '/usuario_crud': (context) => UsuarioCrudPage(),
-        '/usuario_crud_sqlite': (context) => UsuarioCrudSQLitePage(),
-        '/animais': (context) => const TelaListaAnimais(),
+        '/home': (context) => const HomePage(),
+        '/pets': (context) => const TelaListaPets(),
       },
     );
   }

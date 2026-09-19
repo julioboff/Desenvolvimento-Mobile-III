@@ -18,6 +18,7 @@ class _LoginPageState extends State<LoginPage> {
       );
       return;
     }
+
     if (login.user == 'julio' && login.senha == '123456') {
       Navigator.popAndPushNamed(context, '/home');
     } else {
@@ -30,59 +31,79 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Adoção de Pets'),
+        backgroundColor: Colors.green,
+      ),
       body: Padding(
         padding: const EdgeInsets.all(40.0),
         child: Form(
           key: _formKey,
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
+              const Icon(Icons.pets, size: 80, color: Colors.green),
+              const SizedBox(height: 20),
+
+              const Text(
+                'Adote um Pet',
+                style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+              ),
+
+              const SizedBox(height: 30),
+
               TextFormField(
                 initialValue: 'julio',
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Usuário',
                   border: OutlineInputBorder(),
+                  prefixIcon: Icon(Icons.person),
                 ),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Deve informar o usuário';
                   }
+
                   if (value.length < 2) {
                     return 'O usuário deve ter pelo menos 2 caracteres';
                   }
+
                   login.user = value;
                   return null;
                 },
               ),
-              SizedBox(height: 20.0),
+
+              const SizedBox(height: 20),
+
               TextFormField(
                 initialValue: '123456',
                 obscureText: true,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Senha',
                   border: OutlineInputBorder(),
+                  prefixIcon: Icon(Icons.lock),
                 ),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Deve informar a senha';
                   }
+
                   if (value.length < 6) {
                     return 'A senha deve ter pelo menos 6 caracteres';
                   }
+
                   login.senha = value;
                   return null;
                 },
               ),
-              SizedBox(height: 20.0),
+
+              const SizedBox(height: 20),
+
               ElevatedButton.icon(
                 icon: const Icon(Icons.login),
-                label: const Text('Login'),
-                onPressed: () {
-                  if (_formKey.currentState!.validate()) {
-                    _autenticar();
-                  }
-                },
+                label: const Text('Entrar'),
+                onPressed: _autenticar,
               ),
             ],
           ),

@@ -1,4 +1,3 @@
-import 'package:app_aula/telas/sobre.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -12,58 +11,41 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Home'), backgroundColor: Colors.green),
+      appBar: AppBar(
+        title: const Text('Adoção de Pets'),
+        backgroundColor: Colors.green,
+      ),
       drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
           children: <Widget>[
             DrawerHeader(
-              decoration: const BoxDecoration(color: Colors.blue),
+              decoration: const BoxDecoration(color: Colors.green),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: const [
-                  Image(
-                    width: 200,
-                    height: 100,
-                    image: AssetImage('assets/images/upf.png'),
-                  ),
+                  Icon(Icons.pets, color: Colors.white, size: 60),
+                  SizedBox(height: 10),
                   Text(
-                    'App Aula',
+                    'Adote um Pet',
                     style: TextStyle(color: Colors.white, fontSize: 24),
                   ),
                 ],
               ),
             ),
             ListTile(
-              leading: const Icon(Icons.add),
-              title: const Text('Contador'),
+              leading: const Icon(Icons.home),
+              title: const Text('Início'),
               onTap: () {
-                Navigator.pop(context); // close the drawer
-                Navigator.of(context).pushNamed('/contador');
+                Navigator.pop(context);
               },
             ),
             ListTile(
-              leading: const Icon(Icons.help),
-              title: const Text('Sobre o app'),
+              leading: const Icon(Icons.pets),
+              title: const Text('Pets para adoção'),
               onTap: () {
-                Navigator.pop(context); // close the drawer
-                Navigator.of(context).pushNamed('/sobre');
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.arrow_forward),
-              title: const Text('Usuários Crud'),
-              onTap: () {
-                Navigator.pop(context); // close the drawer
-                Navigator.of(context).pushNamed('/usuario_crud');
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.arrow_forward),
-              title: const Text('Usuários Crud SQLite'),
-              onTap: () {
-                Navigator.pop(context); // close the drawer
-                Navigator.of(context).pushNamed('/usuario_crud_sqlite');
+                Navigator.pop(context);
+                Navigator.of(context).pushNamed('/pets');
               },
             ),
             const Divider(),
@@ -75,15 +57,6 @@ class _HomePageState extends State<HomePage> {
                 Navigator.pop(context);
               },
             ),
-            ListTile(
-              leading: const Icon(Icons.pets),
-              title: const Text('Adoção de Animais'),
-              onTap: () {
-                Navigator.pop(context); // close the drawer
-                Navigator.of(context).pushNamed('/animais');
-              },
-            ),
-            const Divider(),
           ],
         ),
       ),
@@ -93,42 +66,70 @@ class _HomePageState extends State<HomePage> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             const Text(
-              'Bem-vindo ao App Aula! Aqui você pode navegar para a tela de contador ou saber mais sobre o aplicativo.',
+              'Encontre um novo amigo!',
+              style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 8),
+            const Text(
+              'Confira os pets disponíveis para adoção.',
               style: TextStyle(fontSize: 18),
             ),
             const SizedBox(height: 24),
-            ClipRRect(
-              borderRadius: BorderRadius.circular(12),
-              child: Image(
-                width: 150,
-                height: 150,
-                image: AssetImage('images/upf.png'),
-                fit: BoxFit.cover,
+            Card(
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  children: [
+                    const Icon(Icons.pets, size: 80, color: Colors.green),
+                    const SizedBox(height: 12),
+                    const Text(
+                      'Pets disponíveis',
+                      style: TextStyle(
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(height: 8),
+                    const Text(
+                      'Conheça os animais que estão esperando por uma nova família.',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontSize: 16),
+                    ),
+                    const SizedBox(height: 16),
+                    ElevatedButton.icon(
+                      onPressed: () {
+                        Navigator.of(context).pushNamed('/pets');
+                      },
+                      icon: const Icon(Icons.search),
+                      label: const Text('Ver pets'),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.green,
+                        padding: const EdgeInsets.symmetric(
+                          vertical: 14,
+                          horizontal: 24,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
-            const SizedBox(height: 24),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).pushNamed('/contador');
-              },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.green,
-                padding: const EdgeInsets.symmetric(vertical: 16),
+            const SizedBox(height: 16),
+            Card(
+              child: ListTile(
+                leading: const Icon(
+                  Icons.favorite,
+                  color: Colors.red,
+                  size: 35,
+                ),
+                title: const Text(
+                  'Adote com responsabilidade',
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                subtitle: const Text(
+                  'A adoção é um compromisso para toda a vida.',
+                ),
               ),
-              child: const Text('Ir para Contador'),
-            ),
-            const SizedBox(height: 12),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => const SobrePage()),
-                );
-              },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.green,
-                padding: const EdgeInsets.symmetric(vertical: 16),
-              ),
-              child: const Text('Ir para Sobre App'),
             ),
           ],
         ),
