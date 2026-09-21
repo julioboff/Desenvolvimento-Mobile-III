@@ -42,6 +42,7 @@ class _TelaCadastroPetState extends State<TelaCadastroPet> {
           child: ListView(
             children: [
               const Icon(Icons.pets, size: 70, color: Colors.green),
+
               const SizedBox(height: 16),
 
               const Text(
@@ -70,18 +71,27 @@ class _TelaCadastroPetState extends State<TelaCadastroPet> {
 
               const SizedBox(height: 16),
 
-              TextFormField(
+              DropdownButtonFormField<String>(
                 decoration: const InputDecoration(
                   labelText: 'Espécie',
                   border: OutlineInputBorder(),
                   prefixIcon: Icon(Icons.category),
                 ),
+                initialValue: especie.isEmpty ? null : especie,
+                items: const [
+                  DropdownMenuItem(value: 'Cachorro', child: Text('Cachorro')),
+                  DropdownMenuItem(value: 'Gato', child: Text('Gato')),
+                ],
+                onChanged: (value) {
+                  setState(() {
+                    especie = value ?? '';
+                  });
+                },
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Deve informar a espécie';
+                    return 'Deve selecionar a espécie';
                   }
 
-                  especie = value;
                   return null;
                 },
               ),
